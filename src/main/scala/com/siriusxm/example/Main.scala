@@ -1,4 +1,4 @@
-package com.example
+package com.siriusxm.example
 
 import cats.effect.IOApp
 import cats.effect.IO

@@ -1,6 +1,9 @@
 ThisBuild / organization := "com.example"
 ThisBuild / scalaVersion := "2.13.5"
 
+val http4sVersion = "1.0.0-M36"
+val circeVersion  = "0.14.3"
+
 lazy val root = (project in file(".")).settings(
   name := "cats-effect-3-quick-start",
   libraryDependencies ++= Seq(
@@ -13,6 +16,13 @@ lazy val root = (project in file(".")).settings(
     "org.typelevel" %% "cats-effect-std" % "3.3.12",
     // better monadic for compiler plugin as suggested by documentation
     compilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1"),
-    "org.typelevel" %% "munit-cats-effect-3" % "1.0.7" % Test
-  )
+    "org.http4s"    %% "http4s-ember-client" % http4sVersion,
+    "org.http4s"    %% "http4s-circe"        % http4sVersion,
+    "org.http4s"    %% "http4s-dsl"          % http4sVersion,
+    "io.circe"      %% "circe-core"          % circeVersion,
+    "io.circe"      %% "circe-generic"       % circeVersion,
+    "io.circe"      %% "circe-literal"       % circeVersion,
+    "org.typelevel" %% "munit-cats-effect-3" % "1.0.7"       % Test,
+    "org.http4s"    %% "http4s-ember-server" % http4sVersion % Test,
+  ),
 )
